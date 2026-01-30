@@ -70,6 +70,26 @@ New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.1.10 -PrefixLengt
 Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses "8.8.8.8"
 ```
 
+**Domain-Wide Security Policies**:
+Configured password and account lockout policies via PowerShell on the Domain Controller:
+```powershell
+#Set minimum password length to 10 characters
+net accounts /minpwlen:10
+
+# Configure account lockout after 5 failed attempts
+net accounts /lockoutthreshold:5
+
+# Set account lockout duration to 15 minutes
+net accounts /lockoutduration:15
+
+# Set lockout observation window to 15 minutes
+net accounts /lockoutwindow:15
+```
+These policies enforce:
+
+- Password Complexity: Minimum 10-character passwords for all domain accounts
+- Brute Force Protection: Account locks after 5 failed login attempts
+- Security Balance: 15-minute lockout prevents attacks while minimizing user impact
 ### 2. Domain Member Configuration
 
 **Windows 10 VM Setup** (VirtualBox):
@@ -94,7 +114,6 @@ Get-WindowsCapability -Name RSAT* -Online | Add-WindowsCapability -Online
 **RSAT Tools Enabled**:
 - Active Directory Users and Computers (dsa.msc)
 - Active Directory Administrative Center
-- Group Policy Management Console (GPMC)
 - DNS Management tools
 - Other AD administration utilities
 
@@ -124,7 +143,7 @@ Domain Root
 
 ### 5. Group Policy Configuration
 
-**Challenge**: Group Policy Management Console (GPMC) not available on Server Core
+**Challenge**: Group Policy Management Console (GPMC) not available 
 
 **Solution**: Demonstrated policy concepts using Local Group Policy Editor on client machine
 
@@ -150,6 +169,14 @@ gpupdate /force
 - **Configured**: Denied access to removable drives
 - **Purpose**: Prevent unauthorized data transfer via USB drives
 - **Security Benefit**: Data loss prevention and endpoint security
+
+#### Machine Inactivity Limit
+
+- **Policy Path**: Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options
+- **Setting**: Interactive logon: Machine inactivity limit
+- **Value**: 300 seconds (5 minutes)
+- **Purpose**: Automatically lock workstation after 5 minutes of inactivity
+- **Security Benefit**: Prevents unauthorized access to unattended machines
 
 #### Policy Application
 - Successfully applied policies using `gpupdate /force`
