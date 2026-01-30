@@ -2,16 +2,16 @@
 
 A hands-on Active Directory home lab demonstrating enterprise-level domain configuration, user management, and Group Policy implementation using Windows Server Core and VirtualBox/VMware Fusion.
 
-## 🎯 Project Overview
+## Project Overview
 
 This project demonstrates the setup and configuration of a functional Active Directory environment using Windows Server Core as a domain controller. The lab showcases core AD administration skills including domain services installation, organizational unit structure, user management, and group policy configuration.
 
-## 🏗️ Architecture
+## Architecture
 
 ### Hardware Setup
 Due to hardware limitations, this lab utilizes a multi-device setup:
 
-- **Dell Laptop**: Hosts Windows 10 VM (VirtualBox) - Domain member machine
+- **Windows Laptop**: Hosts Windows 10 VM (VirtualBox) - Domain member machine
 - **MacBook**: Hosts Windows Server Core (VMware Fusion Pro) - Domain Controller
 
 ### Network Configuration
@@ -33,7 +33,7 @@ This DNS configuration ensures:
 - Client machines resolve internal domain resources through the DC
 - Proper domain join and authentication functionality
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **Virtualization**: 
   - VMware Fusion Pro (macOS)
@@ -47,7 +47,7 @@ This DNS configuration ensures:
   - Active Directory Users and Computers (ADUC)
   - Group Policy Management
 
-## 📋 Implementation Steps
+## Implementation Steps
 
 ### 1. Domain Controller Setup (Server Core)
 
@@ -156,27 +156,27 @@ gpupdate /force
 - Verified policy enforcement through user login testing
 - Demonstrated understanding of policy precedence and scope
 
-## 💡 Key Learnings
+## Key Learnings
 
 ### Technical Skills Developed
-- ✅ Windows Server Core command-line administration
-- ✅ Active Directory Domain Services installation and configuration
-- ✅ DNS configuration and troubleshooting in AD environments
-- ✅ Static IP configuration via PowerShell
-- ✅ Cross-platform virtualization (VMware Fusion + VirtualBox)
-- ✅ Domain joining and authentication processes
-- ✅ OU design and implementation
-- ✅ User account creation and management via ADUC
-- ✅ Group Policy fundamentals and application
-- ✅ Security policy implementation (login messages, removable storage restrictions)
-- ✅ Network configuration for domain environments
+- Windows Server Core command-line administration
+- Active Directory Domain Services installation and configuration
+- DNS configuration and troubleshooting in AD environments
+- Static IP configuration via PowerShell
+- Cross-platform virtualization (VMware Fusion + VirtualBox)
+- Domain joining and authentication processes
+- OU design and implementation
+- User account creation and management via ADUC
+- Group Policy fundamentals and application
+- Security policy implementation (login messages, removable storage restrictions)
+- Network configuration for domain environments
 
 ### Challenges Overcome
 - **Hardware Constraints**: Successfully implemented AD environment across two separate physical machines
 - **Server Core Limitations**: Worked around GUI limitations using PowerShell and remote management tools
 - **GPMC Unavailability**: Demonstrated understanding of Group Policy using alternative methods and Local Group Policy Editor
 
-## 📸 Project Screenshots
+## Project Screenshots
 
 Visual documentation of the implemented Active Directory environment:
 
@@ -217,7 +217,7 @@ screenshots/
 
 *All screenshots demonstrate hands-on implementation and successful configuration of Active Directory components.*
 
-## 🔧 Prerequisites
+## Prerequisites
 
 To replicate this lab, you'll need:
 
@@ -233,7 +233,7 @@ To replicate this lab, you'll need:
   - Familiarity with virtualization concepts
   - Command-line interface comfort
 
-## 🚀 Future Enhancements
+## Future Enhancements
 
 Potential additions to expand this lab:
 
@@ -248,24 +248,13 @@ Potential additions to expand this lab:
 - [ ] Implement password policies and account lockout policies
 - [ ] Set up Active Directory backup and recovery procedures
 
-## 📚 Resources
-
-- [Microsoft Active Directory Documentation](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)
-- [Windows Server Core Administration](https://docs.microsoft.com/en-us/windows-server/administration/server-core/server-core-guide)
-- [Group Policy Overview](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831791(v=ws.11))
-
-## 🤝 Contributing
+## Contributing
 
 This is a personal learning project, but suggestions and feedback are welcome! Feel free to open an issue or submit a pull request.
 
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 👤 Author
+## Author
 
 Built as a hands-on learning project to develop practical Active Directory administration skills.
 
 ---
 
-**Note**: This lab uses evaluation versions of Windows Server and Windows 10. Ensure compliance with Microsoft licensing when using in production or extended environments.
